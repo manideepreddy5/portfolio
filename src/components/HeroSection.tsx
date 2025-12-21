@@ -17,12 +17,12 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden pt-20"
     >
-      {/* Background */}
+      {/* Background with data visualizations */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 gradient-hero" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
