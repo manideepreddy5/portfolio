@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Download, Mail, Linkedin, Github, Twitter } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/profile-photo.png'; // MUST be transparent PNG
 import heroBg from '@/assets/hero-bg.jpg';
 
 const socialLinks = [
@@ -17,14 +17,14 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden pt-20"
     >
-      {/* Background image */}
+      {/* DATA VISUAL BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      {/* Soft overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/75 to-background/50" />
+      {/* READABILITY OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/75 to-background/40" />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -47,13 +47,12 @@ export const HeroSection = () => {
             </p>
 
             <p className="text-muted-foreground max-w-lg leading-relaxed">
-              Motivated Computer Science Engineering graduate with core skills in
-              Python, SQL, EDA, and Data Visualization. Seeking to leverage
-              technical expertise and contribute to data-driven business
-              decisions.
+              Motivated Computer Science Engineering graduate with strong skills in
+              Python, SQL, EDA, and Data Visualization. Seeking to contribute to
+              data-driven business decisions.
             </p>
 
-            {/* Buttons */}
+            {/* BUTTONS */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Button variant="hero" size="lg">
                 <Download className="w-5 h-5" />
@@ -68,7 +67,7 @@ export const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Social links */}
+            {/* SOCIAL + TECH */}
             <div className="flex items-center gap-4 pt-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
@@ -98,29 +97,16 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
+          {/* RIGHT IMAGE – TRANSPARENT, NO CONTAINER */}
           <div
             className="flex justify-center lg:justify-end animate-slide-in-right"
             style={{ animationDelay: '0.4s' }}
           >
-            <div className="relative">
-
-              {/* Subtle glow */}
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-110 animate-float" />
-
-              {/* Photo container */}
-              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-card-hover bg-background">
-                <img
-                  src={profilePhoto}
-                  alt="Manideep Reddy - Data Analyst"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              {/* Decorative dots */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full blur-lg" />
-            </div>
+            <img
+              src={profilePhoto}
+              alt="Manideep Reddy - Data Analyst"
+              className="w-72 md:w-96 h-auto object-contain"
+            />
           </div>
 
         </div>
