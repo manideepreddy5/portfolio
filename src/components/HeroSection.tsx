@@ -18,7 +18,7 @@ export const HeroSection = () => {
       className="min-h-screen flex items-center relative overflow-hidden pt-20"
     >
       {/* Background with data visualizations */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
@@ -26,20 +26,29 @@ export const HeroSection = () => {
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
           {/* Content */}
-          <div className="space-y-6 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
+          <div
+            className="space-y-6 animate-slide-in-left"
+            style={{ animationDelay: '0.2s' }}
+          >
             <p className="text-muted-foreground text-lg">Hello, I'm</p>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display">
               <span className="text-primary">Manideep</span>
               <br />
               <span className="text-foreground">Reddy</span>
             </h1>
+
             <p className="text-xl md:text-2xl text-foreground/80 font-medium">
               Entry-Level Data Analyst | B.Tech CSE (IoT)
             </p>
+
             <p className="text-muted-foreground max-w-lg leading-relaxed">
-              Motivated Computer Science Engineering graduate with core skills in Python, SQL, EDA, and Data Visualization. 
-              Seeking to leverage technical expertise and contribute to data-driven business decisions.
+              Motivated Computer Science Engineering graduate with core skills in
+              Python, SQL, EDA, and Data Visualization. Seeking to leverage
+              technical expertise and contribute to data-driven business
+              decisions.
             </p>
 
             {/* Buttons */}
@@ -48,6 +57,7 @@ export const HeroSection = () => {
                 <Download className="w-5 h-5" />
                 Download Resume
               </Button>
+
               <Button variant="heroOutline" size="lg" asChild>
                 <a href="#contact">
                   <Mail className="w-5 h-5" />
@@ -70,7 +80,9 @@ export const HeroSection = () => {
                   <Icon size={20} />
                 </a>
               ))}
+
               <span className="text-muted-foreground ml-2">|</span>
+
               <div className="flex gap-2 flex-wrap">
                 {techStack.map((tech) => (
                   <span
@@ -85,21 +97,30 @@ export const HeroSection = () => {
           </div>
 
           {/* Profile Image */}
-          <div className="flex justify-center lg:justify-end animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
+          <div
+            className="flex justify-center lg:justify-end animate-slide-in-right"
+            style={{ animationDelay: '0.4s' }}
+          >
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl transform scale-110 animate-float" />
-              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-card shadow-card-hover">
+              
+              {/* Soft glow behind image */}
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-110 animate-float" />
+
+              {/* Image container */}
+              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-card-hover bg-gradient-to-br from-background/80 via-background/60 to-primary/10">
                 <img
                   src={profilePhoto}
                   alt="Manideep Reddy - Data Analyst"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-transparent"
                 />
               </div>
+
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full blur-lg" />
             </div>
           </div>
+
         </div>
       </div>
     </section>
