@@ -1,119 +1,114 @@
-import { Button } from '@/components/ui/button';
-import { Download, Mail, Linkedin, Github, Twitter } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg'; // transparent PNG
-import heroBg from '@/assets/hero-bg.jpg';
+import { Button } from '@/components/ui/button'
+import { Mail } from 'lucide-react'
+import profilePhoto from '@/assets/profile-photo.jpg'
+import heroBg from '@/assets/hero-bg.jpg'
 
-const socialLinks = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/manideep-reddy', label: 'LinkedIn' },
-  { icon: Github, href: 'https://github.com/manideep', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-];
-
-const techStack = ['Python', 'SQL', 'Power BI', 'Excel'];
+const techStack = ['Python', 'SQL', 'Power BI', 'Excel', 'EDA']
 
 export const HeroSection = () => {
   return (
     <section
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden pt-24"
-    >
-      {/* DATA VISUAL BACKGROUND */}
+    >call 
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-
       {/* READABILITY OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/75 to-background/45" />
+         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/75 to-background/45" />
+
+
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
 
           {/* LEFT CONTENT */}
-          <div
-            className="space-y-6 animate-slide-in-left"
-            style={{ animationDelay: '0.2s' }}
-          >
-            <p className="text-muted-foreground text-lg">Hello, I'm</p>
+          <div className="animate-slide-in-left space-y-5">
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
-              <span className="text-primary">Manideep</span>
+            <p className="text-sm uppercase tracking-wide text-muted-foreground">
+              Hello, I’m
+            </p>
+
+            <h1 className="font-display font-bold leading-tight">
+              <span className="text-5xl md:text-6xl lg:text-[64px] text-primary">
+                Manideep
+              </span>
               <br />
-              <span className="text-foreground">Reddy</span>
+              <span className="text-5xl md:text-6xl lg:text-[64px] text-foreground">
+                Reddy
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-              Data Analyst | Python • SQL • Power BI
+            {/* TAGLINE – STRICT 1 LINE */}
+            <p className="text-lg md:text-xl font-medium text-foreground/80 whitespace-nowrap">
+              <span className="text-primary font-semibold">Data Analyst</span>
+              <span className="mx-2 text-muted-foreground">—</span>
+              Transforming data into clear, actionable insights
             </p>
 
-            <p className="text-muted-foreground max-w-lg leading-relaxed">
+            {/* DESCRIPTION – EXACTLY 3 LINES */}
+            <p
+              className="max-w-xl text-muted-foreground text-base leading-relaxed"
+              style={{
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}
+            >
               Computer Science graduate with strong foundations in Python, SQL,
-              exploratory data analysis, and data visualization. Focused on
-              turning raw data into meaningful insights.
+              and data analysis. Passionate about extracting insights from raw
+              data through structured analysis and effective visualization.
             </p>
 
-            {/* BUTTONS */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button variant="hero" size="lg">
-                <Download className="w-5 h-5" />
-                Download Resume
-              </Button>
-
-              <Button variant="heroOutline" size="lg" asChild>
-                <a href="#contact">
-                  <Mail className="w-5 h-5" />
-                  Contact Me
-                </a>
-              </Button>
+            {/* SKILLS */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-1.5 text-sm font-medium rounded-full bg-primary/10 text-primary"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
 
-            {/* SOCIAL + TECH */}
-            <div className="flex items-center gap-4 pt-4">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
-                  <Icon size={20} />
+            {/* CTA BUTTONS */}
+            <div className="flex gap-4 pt-4">
+              <Button variant="hero" size="lg">
+                View My Resume
+              </Button>
+              <Button variant="heroOutline" size="lg" asChild>
+                <a href="#contact">
+                  <Mail className="w-5 h-5 mr-2" />
+                  Let’s Connect
                 </a>
-              ))}
-
-              <span className="text-muted-foreground ml-2">|</span>
-
-              <div className="flex gap-2 flex-wrap">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              </Button>
             </div>
           </div>
 
-          {/* RIGHT IMAGE – POSITION FIXED */}
-          <div
-            className="flex justify-center lg:justify-end animate-slide-in-right"
-            style={{ animationDelay: '0.4s' }}
-          >
-            <div className="w-[300px] md:w-[360px] lg:w-[400px]">
-              <img
-                src={profilePhoto}
-                alt="Manideep Reddy - Data Analyst"
-                className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
-              />
+          {/* RIGHT IMAGE */}
+          <div className="flex justify-center lg:justify-end animate-slide-in-right">
+           <div className="relative w-[420px] md:w-[480px] lg:w-[540px] -mt-8 translate-x-14 scale-125">
 
-            </div>
+
+            <img
+              src={profilePhoto}
+              alt="Manideep Reddy"
+              className="w-full h-auto object-contain
+              drop-shadow-[0_25px_45px_rgba(0,0,0,0.25)]
+              contrast-[1.02] saturate-[1.05]
+              [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]
+              [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
+            />
+
+             </div>
           </div>
 
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

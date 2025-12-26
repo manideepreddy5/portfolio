@@ -13,7 +13,7 @@ export const Footer = () => {
       <div className="section-container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/80 text-sm flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> by Manideep Reddy
+            Made by Manideep Reddy
           </p>
 
           <div className="flex items-center gap-4">
