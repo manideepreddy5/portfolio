@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react'
+import { Menu, X, Linkedin } from 'lucide-react'
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -7,84 +7,135 @@ const navItems = [
   { label: 'Skills', href: '#skills' },
   { label: 'Education', href: '#education' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
-];
+]
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-card/95 backdrop-blur-md shadow-card py-3'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        ${isScrolled
+          ? 'bg-background/90 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
-      <div className="section-container flex items-center justify-between">
+      {/* ✅ SAME CONTAINER AS HERO */}
+      <div className="section-container flex items-center justify-between relative">
 
-        {/* LOGO */}
+        {/* LOGO (LEFT) */}
         <a
-        href="#home"
-        aria-label="GMR Home"
-        className="flex items-center justify-center w-11 h-11 rounded-full
-             bg-gradient-to-br from-primary to-primary/80
-             text-primary-foreground font-semibold text-sm tracking-wider
-             shadow-md ring-1 ring-primary/30
-             hover:scale-105 transition-transform"
+          href="#home"
+          aria-label="GMR Home"
+          className="
+            flex items-center justify-center w-11 h-11 rounded-full
+            bg-gradient-to-br from-primary to-primary/80
+            text-primary-foreground font-semibold text-sm tracking-wider
+            shadow-md ring-1 ring-primary/30
+            hover:scale-105 transition-transform
+          "
         >
-         GMR
+          GMR
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* NAV ITEMS (PERFECT CENTER) */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+              className="
+                relative text-sm font-medium text-muted-foreground
+                hover:text-primary transition-colors
+                after:absolute after:-bottom-1 after:left-0
+                after:h-[2px] after:w-0 after:bg-primary
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* RIGHT SIDE (LINKEDIN + MOBILE MENU) */}
+        <div className="flex items-center gap-4">
+
+          {/* LINKEDIN DESKTOP */}
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              hidden md:flex items-center gap-2
+              px-4 py-2 rounded-full
+              border border-[#0A66C2]/40
+              text-sm font-medium text-[#0A66C2]
+              hover:bg-[#0A66C2] hover:text-white
+              transition-all duration-300
+            "
+          >
+            <Linkedin size={16} />
+            LinkedIn
+          </a>
+
+          {/* MOBILE MENU TOGGLE */}
+          <button
+            className="md:hidden text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-card border-t border-border animate-fade-in">
+        <div className="md:hidden bg-background/95 backdrop-blur border-t border-border">
           <div className="section-container py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium py-2"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
+
+            {/* LINKEDIN MOBILE */}
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                mt-2 inline-flex items-center gap-2
+                px-4 py-2 rounded-full
+                border border-[#0A66C2]/40
+                text-sm font-medium text-[#0A66C2]
+                hover:bg-[#0A66C2] hover:text-white
+                transition-all duration-300
+              "
+            >
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
           </div>
         </div>
       )}
     </nav>
-  );
-};
+  )
+}

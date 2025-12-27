@@ -27,7 +27,7 @@ export const EducationSection = () => {
       <div className="section-container">
         
         {/* SECTION HEADER (MATCHES ABOUT & SKILLS) */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h2 className="section-title">Education</h2>
           <p className="section-subtitle mt-2">My academic journey</p>
           <div className="w-12 h-1 bg-primary rounded-full mx-auto mt-4" />

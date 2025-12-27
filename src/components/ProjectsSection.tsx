@@ -20,7 +20,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-20 bg-background">
       <div className="section-container">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h2 className="section-title">Projects</h2>
           <p className="section-subtitle mt-2">
             Notable work and academic contributions

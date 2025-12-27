@@ -5,7 +5,7 @@ export const ContactSection = () => {
     <section id="contact" className="py-20 bg-background">
       <div className="section-container">
         {/* Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="section-title">Let’s Connect</h2>
           <p className="section-subtitle mt-2">
             Open to opportunities and professional discussions

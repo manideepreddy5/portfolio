@@ -43,7 +43,7 @@ export const SkillsSection = () => {
       <div className="section-container">
 
         {/* HEADER */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h2 className="section-title">Skills</h2>
 
           <p className="mt-1 text-sm text-muted-foreground">
