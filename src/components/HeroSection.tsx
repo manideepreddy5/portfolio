@@ -13,17 +13,24 @@ export const HeroSection = () => {
     >
       {/* BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      {/* LIGHT OVERLAY */}
+      {/* LIGHT READABILITY OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/30 to-background/15" />
 
       <div className="relative z-10 w-full">
-        <div className="section-container grid gap-12 items-center 
-                        grid-cols-1 
-                        lg:grid-cols-2">
+        <div
+          className="
+            section-container
+            grid
+            grid-cols-1
+            lg:grid-cols-2
+            gap-12
+            items-center
+          "
+        >
 
           {/* LEFT CONTENT */}
           <div className="space-y-5 text-center lg:text-left">
@@ -41,10 +48,15 @@ export const HeroSection = () => {
               </span>
             </h1>
 
-            {/* TAGLINE */}
-            <p className="text-base sm:text-lg md:text-xl font-medium text-foreground/80 
-                          max-w-xl mx-auto lg:mx-0
-                          lg:whitespace-nowrap">
+            {/* TAGLINE – ONE LINE ON DESKTOP, WRAPS ON MOBILE */}
+            <p
+              className="
+                text-base sm:text-lg md:text-xl
+                font-medium text-foreground/80
+                max-w-xl mx-auto lg:mx-0
+                lg:whitespace-nowrap
+              "
+            >
               <span className="text-primary font-semibold">Data Analyst</span>
               <span className="mx-2 text-muted-foreground">—</span>
               Transforming data into clear, actionable insights
@@ -71,8 +83,14 @@ export const HeroSection = () => {
 
             {/* CTA BUTTONS */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Button variant="hero" size="lg">
-                View My Resume
+              <Button variant="hero" size="lg" asChild>
+                <a
+                  href="/mywebsite5/Manideep_Reddy_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View My Resume
+                </a>
               </Button>
 
               <Button variant="heroOutline" size="lg" asChild>
@@ -103,8 +121,10 @@ export const HeroSection = () => {
                   w-full h-auto object-contain
                   drop-shadow-[0_18px_36px_rgba(0,0,0,0.18)]
                   contrast-[1.02] saturate-[1.05]
-                  [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
-                  [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
+
+                  /* Fade ONLY on desktop */
+                  lg:[mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
+                  lg:[-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
                 "
               />
             </div>

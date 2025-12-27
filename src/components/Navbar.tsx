@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Linkedin } from 'lucide-react'
 
 const navItems = [
-  { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Education', href: '#education' },
@@ -74,7 +73,7 @@ export const Navbar = () => {
 
           {/* LINKEDIN DESKTOP */}
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/manideepreddygummadi/"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -118,7 +117,7 @@ export const Navbar = () => {
 
             {/* LINKEDIN MOBILE */}
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/manideepreddygummadi/"
               target="_blank"
               rel="noopener noreferrer"
               className="
