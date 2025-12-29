@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Linkedin } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -30,14 +31,9 @@ export const Navbar = () => {
           : 'bg-transparent py-5'
         }`}
     >
-      {/* FIX: Replaced 'section-container' with standard full-width alignment classes.
-         'w-full': Ensures it takes available space.
-         'max-w-7xl mx-auto': Matches the Hero section limit.
-         'px-6': Matches the Hero section padding.
-      */}
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between relative">
 
-        {/* LOGO (LEFT) */}
+        {/* LOGO */}
         <a
           href="#home"
           aria-label="GMR Home"
@@ -52,7 +48,7 @@ export const Navbar = () => {
           GMR
         </a>
 
-        {/* NAV ITEMS (PERFECT CENTER) */}
+        {/* NAV ITEMS (CENTER) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8">
           {navItems.map((item) => (
             <a
@@ -72,8 +68,13 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* RIGHT SIDE (LINKEDIN + MOBILE MENU) */}
+        {/* RIGHT SIDE ACTIONS */}
         <div className="flex items-center gap-4">
+          
+          {/* THE ATTRACTIVE TOGGLE BUTTON */}
+          <div className="animate-in fade-in slide-in-from-top-4 duration-1000">
+            <ThemeToggle />
+          </div>
 
           {/* LINKEDIN DESKTOP */}
           <a
@@ -86,7 +87,7 @@ export const Navbar = () => {
               border border-[#0A66C2]/40
               text-sm font-medium text-[#0A66C2]
               hover:bg-[#0A66C2] hover:text-white
-              transition-all duration-300
+              transition-all duration-300 shadow-sm
             "
           >
             <Linkedin size={16} />
@@ -95,7 +96,7 @@ export const Navbar = () => {
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -107,7 +108,6 @@ export const Navbar = () => {
       {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur border-t border-border">
-          {/* FIX: Updated container here as well to match header width */}
           <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <a
@@ -120,13 +120,17 @@ export const Navbar = () => {
               </a>
             ))}
 
-            {/* LINKEDIN MOBILE */}
+            <div className="flex items-center justify-between border-t border-border pt-4">
+               <span className="text-sm font-medium text-muted-foreground">Dark Mode</span>
+               <ThemeToggle />
+            </div>
+
             <a
               href="https://www.linkedin.com/in/manideepreddygummadi/"
               target="_blank"
               rel="noopener noreferrer"
               className="
-                mt-2 inline-flex items-center gap-2
+                inline-flex items-center justify-center gap-2
                 px-4 py-2 rounded-full
                 border border-[#0A66C2]/40
                 text-sm font-medium text-[#0A66C2]

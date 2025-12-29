@@ -45,11 +45,9 @@ export const SkillsSection = () => {
         {/* HEADER */}
         <div className="text-center mb-8">
           <h2 className="section-title">Skills</h2>
-
           <p className="mt-1 text-sm text-muted-foreground">
             Technologies and analytical capabilities I work with
           </p>
-
           <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-primary" />
         </div>
 
@@ -64,15 +62,16 @@ export const SkillsSection = () => {
                 rounded-2xl
                 p-6
                 shadow-sm
-                hover:shadow-md
-                transition-all
+                hover:shadow-xl hover:-translate-y-2 
+                transition-all duration-500
                 min-h-[300px]
                 flex flex-col
+                group
               "
             >
-              {/* CARD HEADER — FIXED */}
+              {/* CARD HEADER */}
               <div className="h-[72px] flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <group.icon className="w-5 h-5 text-primary" />
                 </div>
 
@@ -81,7 +80,7 @@ export const SkillsSection = () => {
                 </h3>
               </div>
 
-              {/* CONTENT — PUSHED LEFT */}
+              {/* CONTENT */}
               <ul className="ml-1 space-y-2 text-sm text-muted-foreground leading-relaxed">
                 {group.skills.map((skill) => (
                   <li key={skill} className="whitespace-nowrap">
