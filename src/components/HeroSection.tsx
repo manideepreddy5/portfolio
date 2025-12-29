@@ -68,7 +68,7 @@ export const HeroSection = () => {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
               <Button variant="hero" size="lg" asChild>
                 <a
-                  href="/mywebsite5/Manideep_Reddy_Resume.pdf"
+                  href="/portfolio/Manideep_Reddy_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
