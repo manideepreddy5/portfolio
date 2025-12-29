@@ -2,7 +2,7 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-background"
+      className="py-10 bg-background"
     >
       <div className="section-container">
         <div

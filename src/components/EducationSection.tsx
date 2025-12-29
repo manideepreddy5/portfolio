@@ -23,7 +23,7 @@ const educationData = [
 
 export const EducationSection = () => {
   return (
-    <section id="education" className="py-20 bg-background">
+    <section id="education" className="py-10 bg-background">
       <div className="section-container">
         
         {/* SECTION HEADER (MATCHES ABOUT & SKILLS) */}

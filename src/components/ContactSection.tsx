@@ -2,7 +2,7 @@ import { Mail, Linkedin, Github } from 'lucide-react'
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-10 bg-background">
       <div className="section-container">
         {/* Heading */}
         <div className="text-center mb-8">

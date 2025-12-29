@@ -39,7 +39,7 @@ const skillGroups = [
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-16 bg-background">
+    <section id="skills" className="py-10 bg-background">
       <div className="section-container">
 
         {/* HEADER */}

@@ -26,7 +26,7 @@ const certifications = [
 
 export const CertificationsSection = () => {
   return (
-    <section id="certifications" className="py-20 bg-background">
+    <section id="certifications" className="py-10 bg-background">
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-8">

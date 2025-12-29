@@ -10,7 +10,7 @@ export const HeroSection = () => {
     <section
       id="home"
       // bg-cover ensures the background extends to cover the photo on mobile
-      className="relative pt-28 pb-28 bg-no-repeat bg-cover lg:bg-[length:1300px_auto]"
+      className="relative pt-28 pb-20 bg-no-repeat bg-cover lg:bg-[length:1300px_auto]"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundPosition: 'center -65px',
@@ -103,18 +103,8 @@ export const HeroSection = () => {
                   /* Removed old mask classes from here to use style prop below */
                 "
                 style={{
-                  // FIX: Composite mask to hide side lines AND fade bottom
-                  // 1. Bottom fade (black 85% -> transparent)
-                  // 2. Side fades (transparent 0% -> black 2% ... black 98% -> transparent 100%)
-                  maskImage: `linear-gradient(to bottom, black 85%, transparent 100%), 
-                              linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)`,
-                  
-                  WebkitMaskImage: `linear-gradient(to bottom, black 85%, transparent 100%), 
-                                    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)`,
-                  
-                  // 'intersect' means only show pixels where BOTH masks overlap
-                  maskComposite: 'intersect',
-                  WebkitMaskComposite: 'source-in' 
+                  maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
                 }}
               />
             </div>
