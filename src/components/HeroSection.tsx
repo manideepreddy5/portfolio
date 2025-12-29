@@ -29,11 +29,11 @@ export const HeroSection = () => {
             </p>
 
             <h1 className="font-display font-bold leading-tight">
-              <span className="block text-4xl sm:text-5xl lg:text-[70px] text-primary">
-                Manideep
+              <span className="block text-4xl sm:text-5xl lg:text-[60px] text-primary">
+                Manideep Reddy
               </span>
-              <span className="block text-4xl sm:text-5xl lg:text-[70px] text-foreground">
-                Reddy
+              <span className="block text-4xl sm:text-5xl lg:text-[60px] text-foreground">
+                Gummadi
               </span>
             </h1>
 
