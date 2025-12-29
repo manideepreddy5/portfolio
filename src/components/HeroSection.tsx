@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Mail } from 'lucide-react'
-import profilePhoto from '@/assets/profile-photo.jpg'
+import profilePhoto from '@/assets/profile-photo.png'
 import heroBg from '@/assets/hero-bg.jpg'
 
 const techStack = ['Python', 'SQL', 'Power BI', 'Excel', 'EDA']
@@ -23,7 +23,6 @@ export const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
           {/* LEFT CONTENT */}
-          {/* 'text-center' for mobile, 'lg:text-left' for laptop */}
           <div className="space-y-6 text-center lg:text-left">
             <p className="text-sm uppercase tracking-wide text-muted-foreground">
               Hello, I’m
@@ -38,7 +37,6 @@ export const HeroSection = () => {
               </span>
             </h1>
 
-            {/* Added 'mx-auto' to center paragraphs on mobile */}
             <p className="
               text-base sm:text-lg md:text-xl
               font-medium text-foreground/80
@@ -56,7 +54,6 @@ export const HeroSection = () => {
               data through structured analysis and effective visualization.
             </p>
 
-            {/* 'justify-center' aligns buttons to middle on mobile */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-3">
               {techStack.map((tech) => (
                 <span
@@ -89,8 +86,7 @@ export const HeroSection = () => {
           </div>
 
           {/* RIGHT IMAGE */}
-          {/* Added 'mt-10' to give space between buttons and photo on mobile. */}
-          <div className="flex justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="flex justify-center lg:justify-end mt-10 lg:mt-0 lg:mr-[30px]">
             <div className="
               relative
               w-[280px]      
@@ -104,12 +100,22 @@ export const HeroSection = () => {
                   w-full h-auto object-contain
                   drop-shadow-[0_18px_36px_rgba(0,0,0,0.18)]
                   contrast-[1.02] saturate-[1.05]
-                  
-                  /* FADING EFFECT RESTORED */
-                  /* No 'lg:' prefix, so it applies on all screens */
-                  [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]
-                  [-webkit-mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]
+                  /* Removed old mask classes from here to use style prop below */
                 "
+                style={{
+                  // FIX: Composite mask to hide side lines AND fade bottom
+                  // 1. Bottom fade (black 85% -> transparent)
+                  // 2. Side fades (transparent 0% -> black 2% ... black 98% -> transparent 100%)
+                  maskImage: `linear-gradient(to bottom, black 85%, transparent 100%), 
+                              linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)`,
+                  
+                  WebkitMaskImage: `linear-gradient(to bottom, black 85%, transparent 100%), 
+                                    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)`,
+                  
+                  // 'intersect' means only show pixels where BOTH masks overlap
+                  maskComposite: 'intersect',
+                  WebkitMaskComposite: 'source-in' 
+                }}
               />
             </div>
           </div>
