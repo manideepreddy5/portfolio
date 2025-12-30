@@ -15,30 +15,30 @@ export const ContactSection = () => {
 
         {/* Card */}
         <div className="max-w-3xl mx-auto">
-          <div className="bg-card rounded-2xl p-10 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+          <div className="bg-card rounded-2xl p-6 sm:p-10 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
             
-            {/* Email */}
-            <div className="flex justify-center items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Mail className="w-5 h-5 text-primary" />
+            {/* Email - Fixed to stay in one line/containment on mobile */}
+            <div className="flex flex-row justify-center items-center gap-2 sm:gap-3 mb-8 flex-nowrap">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <a
                 href="mailto:manideep2585@gmail.com"
-                className="text-lg font-medium text-primary hover:underline break-all"
+                className="text-[13px] xs:text-sm sm:text-lg font-medium text-primary hover:underline truncate"
               >
                 manideep2585@gmail.com
               </a>
             </div>
 
-            {/* Buttons */}
+            {/* Buttons - Kept your original styles exactly */}
             <div className="flex justify-center gap-4">
               <a
                 href="https://www.linkedin.com/in/manideepreddygummadi/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                className="flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all text-sm sm:text-base"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 LinkedIn
               </a>
 
@@ -46,9 +46,9 @@ export const ContactSection = () => {
                 href="https://github.com/manideepreddy5"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-medium hover:bg-muted transition-all"
+                className="flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl border border-border text-foreground font-medium hover:bg-muted transition-all text-sm sm:text-base"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                 GitHub
               </a>
             </div>

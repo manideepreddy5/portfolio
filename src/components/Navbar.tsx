@@ -42,14 +42,15 @@ export const Navbar = () => {
             bg-gradient-to-br from-primary to-primary/80
             text-primary-foreground font-semibold text-sm tracking-wider
             shadow-md ring-1 ring-primary/30
-            hover:scale-105 transition-transform
+            hover:scale-105 transition-transform shrink-0
           "
         >
           GMR
         </a>
 
-        {/* NAV ITEMS (CENTER) */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8">
+        {/* NAV ITEMS (Updated for Tablet/Desktop) */}
+        {/* Changed from absolute positioning to flex to prevent overlapping */}
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8 mx-4">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -69,20 +70,18 @@ export const Navbar = () => {
         </div>
 
         {/* RIGHT SIDE ACTIONS */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           
-          {/* THE ATTRACTIVE TOGGLE BUTTON */}
           <div className="animate-in fade-in slide-in-from-top-4 duration-1000">
             <ThemeToggle />
           </div>
 
-          {/* LINKEDIN DESKTOP */}
           <a
             href="https://www.linkedin.com/in/manideepreddygummadi/"
             target="_blank"
             rel="noopener noreferrer"
             className="
-              hidden md:flex items-center gap-2
+              hidden sm:flex items-center gap-2
               px-4 py-2 rounded-full
               border border-[#0A66C2]/40
               text-sm font-medium text-[#0A66C2]
@@ -91,12 +90,12 @@ export const Navbar = () => {
             "
           >
             <Linkedin size={16} />
-            LinkedIn
+            <span className="hidden xl:inline">LinkedIn</span>
           </a>
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -105,9 +104,9 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (Visible on both Tablet and Mobile) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur border-t border-border">
+        <div className="lg:hidden bg-background/95 backdrop-blur border-t border-border">
           <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <a
@@ -120,11 +119,6 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <div className="flex items-center justify-between border-t border-border pt-4">
-               <span className="text-sm font-medium text-muted-foreground">Dark Mode</span>
-               <ThemeToggle />
-            </div>
-
             <a
               href="https://www.linkedin.com/in/manideepreddygummadi/"
               target="_blank"
@@ -136,6 +130,7 @@ export const Navbar = () => {
                 text-sm font-medium text-[#0A66C2]
                 hover:bg-[#0A66C2] hover:text-white
                 transition-all duration-300
+                mt-2
               "
             >
               <Linkedin size={16} />
